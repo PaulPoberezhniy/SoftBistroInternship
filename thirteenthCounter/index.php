@@ -19,15 +19,14 @@ function thirteentFridaysCount ($starting_year, $ending_year)       //counting f
 
 		if (isItLeapYear($year))
 		{
-			$first_of_jan = $year."/01/01";                                   // (to begin count from 01/01/curent_year)
+			$first = $year."/01/13";                                   // (to begin count from 13/01/curent_year)
 
-			for ($day = 1; $day < 366; $day++)
+			for ($month = 1; $month <= 12; $month++)
 			{
-				$cur_date = strtotime($first_of_jan ."+". $day . "day");    
+				$cur_date = strtotime($first ."+". $month . "month");    
 				if (getdate($cur_date)['weekday'] == 'Friday' && getdate($cur_date)['mday'] == 13)  //cheking if cur_date is friday 13
 					$fridays13++;
 			}
-
 		}
 
 	}
